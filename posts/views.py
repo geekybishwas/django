@@ -14,7 +14,7 @@ def post(request,pk):
 def weather(request):
     if request.method=='POST':
         city=request.POST.get('city')
-        api_key = '11777f7e5db525a2012307e8c92b325f'
+        # api_key = '11777f7e5db525a2012307e8c92b325f'
         url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
         res = requests.get(url)
         json_data=res.json()
