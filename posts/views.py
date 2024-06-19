@@ -29,3 +29,6 @@ def weather(request):
         data={}
         # city='dsdsd'
     return render(request,'weather.html',{'data':data})
+
+def home(request):
+    return render(request,'home.html')
