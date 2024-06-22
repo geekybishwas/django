@@ -6,6 +6,6 @@ urlpatterns = [
     path('posts/<str:pk>',views.post,name='post'),
     path('weather',views.weather,name='weather'),
     path('',views.home,name='home'),
-    path('<str:room>/',views.room,name='room'),
+    # path('<str:room>/',views.room,name='room'),
     path('checkview',views.checkview,name='checkview')
 ]

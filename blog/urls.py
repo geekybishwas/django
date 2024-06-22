@@ -19,5 +19,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('posts.urls'))
+    # path('',include('posts.urls')),
+    # this allows auth
+    path('members/',include('django.contrib.auth.urls')),
+    path('members/',include('members.urls'))
 ]
