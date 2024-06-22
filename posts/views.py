@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import json
 import requests
 from .models import Post
+from posts.models import Room,Message
 # Create your views here.
 def index(request):
     posts=Post.objects.all()
@@ -32,3 +33,20 @@ def weather(request):
 
 def home(request):
     return render(request,'home.html')
+
+def room(request,room):
+    return render(request,'room.html')
+
+def checkview(request):
+    # return render(request,)
+    # pass
+    room=request.POST['room_name']
+    username=request.POST['username']
+
+    # Checking the room name exists or not
+    if Room.objects.filter(name=room).exists():
+        return redirect('/'+room+'/?username='+username)
+    else:
+        new_room=Room.objects.create(name=room)
+        new_room.save()
+        return redirect('/'+room+'/?username'+username)
